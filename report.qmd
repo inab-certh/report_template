@@ -1,0 +1,122 @@
+---
+format:
+  typst:
+    toc: true
+    section-numbering: 1.1.1
+    font-size: 9pt
+    margin:
+      x: 2.5cm
+      y: 2.5cm
+    fontpaths: ["fonts"]
+    mainfont: "Montserrat"
+    monofont: "DejaVu Sans Mono"
+    include-in-header: header.typ
+  docx:
+    toc: true
+    number-sections: true
+    reference-doc: template.docx
+knitr:
+  opts_chunk:
+    dev: "svglite"
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: theme
+
+clr_ehealth_lab_navy <- "#3C5064"
+clr_ehealth_lab_teal <- "#A0C8C8"
+
+theme_ehealth_lab <- function(base_size = 13) {
+  ggplot2::theme_minimal(base_size = base_size) +
+  ggplot2::theme(
+    plot.title       = ggplot2::element_text(face = "bold", size = base_size + 2, color = "#3C5064", margin = ggplot2::margin(b = 4)),
+    plot.subtitle    = ggplot2::element_text(color = "#A0C8C8", size = base_size - 2, margin = ggplot2::margin(b = 12)),
+    plot.caption     = ggplot2::element_text(color = "#A0C8C8", size = base_size - 4),
+    panel.grid.minor = ggplot2::element_blank(),
+    panel.grid.major = ggplot2::element_line(color = "#A0C8C8", linewidth = 0.3),
+    axis.title       = ggplot2::element_text(color = "#3C5064", size = base_size - 2),
+    axis.text        = ggplot2::element_text(color = "#3C5064"),
+    axis.text.x      = ggplot2::element_text(angle = 45, hjust = 1),
+    plot.margin      = ggplot2::margin(16, 16, 12, 16)
+  )
+}
+
+```
+
+```{=typst}
+#pagebreak()
+```
+
+<!-- Summary ------------------------------------------------------------>
+
+# Executive summary
+
+**Background**
+
+\
+
+**Key Findings**
+
+\
+
+**Conclusion and next steps**
+
+\
+
+
+```{=typst}
+#pagebreak()
+```
+
+<!-- Introduction ------------------------------------------------------------>
+
+# Background and objectives
+
+## Background
+
+## Objectives 
+
+<!-- Methods ----------------------------------------------------------------->
+
+# Methods
+
+## Study design and data source
+
+## Study timeframe
+
+## Study population
+
+## Epidemiological definitions
+  
+## Statistical Analysis
+
+<!-- Results ----------------------------------------------------------------->
+
+# Results
+
+<!-- Discussion -------------------------------------------------------------->
+
+# Discussion
+
+<!-- Appendices -------------------------------------------------------------->
+
+# Appendix A {#sec-appendix-a .appendix}
+
+```{=typst}
+// 1. Reset the specific counter Quarto uses for tables
+#counter(figure.where(kind: "quarto-float-tbl")).update(0)
+#counter(figure.where(kind: table)).update(0)
+
+// 2. Force the numbering to literally print "A" followed by the integer
+#show figure.where(kind: "quarto-float-tbl"): set figure(numbering: n => "A" + str(n))
+#show figure.where(kind: table): set figure(numbering: n => "A" + str(n))
+
+// 3. Allow large tables to break across multiple pages
+#show figure: set block(breakable: true)
+```
+
+
